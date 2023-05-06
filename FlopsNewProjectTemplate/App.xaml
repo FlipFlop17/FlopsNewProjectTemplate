@@ -1,0 +1,21 @@
+﻿<Application x:Class="FlopsNewProjectTemplate.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:FlopsNewProjectTemplate"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+    <Application.Resources>
+        <ResourceDictionary>
+            <SolidColorBrush x:Key="AppCustomBlue" Color="#2F73E5"/>
+            <SolidColorBrush x:Key="AppCustomOrange" Color="#FF6129"/>
+            <SolidColorBrush x:Key="AppCustomTeal" Color="#02A4A4"/>
+            <SolidColorBrush x:Key="AppCustomPink" Color="#EB4D7A"/>
+            <SolidColorBrush x:Key="AppCustomForest" Color="#038661"/>
+            <SolidColorBrush x:Key="AppCustomPurple" Color="#721C7A"/>
+            <SolidColorBrush x:Key="AppCustomStone" Color="#00497A"/>
+            <ResourceDictionary.MergedDictionaries>
+                <materialDesign:CustomColorTheme BaseTheme="Light" PrimaryColor="#2F73E5" SecondaryColor="#02A4A4"/>
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
