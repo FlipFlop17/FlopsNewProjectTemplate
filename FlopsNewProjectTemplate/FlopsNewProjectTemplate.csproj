@@ -136,6 +136,9 @@
     <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Serilog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=24c2f752a8e58a10, processorArchitecture=MSIL">
       <HintPath>..\packages\Serilog.2.10.0\lib\net46\Serilog.dll</HintPath>
     </Reference>
@@ -236,6 +239,9 @@
     <Compile Include="Controls\AppLogoName.xaml.cs">
       <DependentUpon>AppLogoName.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\UATLabel.xaml.cs">
+      <DependentUpon>UATLabel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\WindowControlButtons.xaml.cs">
       <DependentUpon>WindowControlButtons.xaml</DependentUpon>
     </Compile>
@@ -244,7 +250,6 @@
     <Compile Include="Interfaces\INavigationable.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\NavigationService.cs" />
-    <Compile Include="Store\NavigationStore.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\SettingsViewModel.cs" />
@@ -259,6 +264,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\NavigationMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\UATLabel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -308,7 +317,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="App.config.Debug.json">
       <DependentUpon>App.config.json</DependentUpon>
       <IsTransformFile>true</IsTransformFile>

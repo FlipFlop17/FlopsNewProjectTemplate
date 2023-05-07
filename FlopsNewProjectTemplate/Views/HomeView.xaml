@@ -17,6 +17,6 @@
             d:DataContext="{d:DesignInstance viewModel:HomeViewModel, IsDesignTimeCreatable=True}"
             d:Height="400" d:Width="800">
     <Grid>
-        <Label FontSize="50">HOME</Label>
+        <Label FontSize="50" Content="{Binding Name}"></Label>
     </Grid>
 </UserControl>

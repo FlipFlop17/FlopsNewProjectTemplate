@@ -8,7 +8,13 @@ namespace FlopsNewProjectTemplate.Interfaces
 {
     public interface INavigationable
     {
+        /// <summary>
+        /// The name of the view. Optional
+        /// </summary>
         string Name { get; }
+        /// <summary>
+        /// The viewmodel instance
+        /// </summary>
         INavigationable ViewModel { get; }
     }
 }

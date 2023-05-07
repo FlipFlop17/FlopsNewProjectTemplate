@@ -1,2 +1,4 @@
 ﻿{
+  "MainDirectoryPath": "MojDebugPath",
+  "Environment": "Development"
 }

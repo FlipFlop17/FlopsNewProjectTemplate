@@ -1,8 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FlopsNewProjectTemplate.Config;
 using FlopsNewProjectTemplate.Controls;
 using FlopsNewProjectTemplate.Interfaces;
 using FlopsNewProjectTemplate.Services;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -26,16 +28,19 @@ namespace FlopsNewProjectTemplate.ViewModel
             set { SetProperty(ref _currentViewModel,value); }
         }
         public RelayCommand<NavigationViews> NewViewIsClicked { get; set; }
-        public MainWindowViewModel(NavigationService navService)
+        public bool UatLabelVisibility { get; set; }
+        public MainWindowViewModel(NavigationService navService,AppConfig config)
         {
             _navService = navService;
             CurrentViewModel = _navService.GoToHomePage(); //set start page
             NewViewIsClicked = new RelayCommand<NavigationViews>(ClickedMe);
+            UatLabelVisibility = !config.IsRunningOnProduction();
         }
 
         private void ClickedMe(NavigationViews view)
         {
             CurrentViewModel = _navService.GetSelectedView(view);
         }
+        //TODO Dialogs
     }
 }

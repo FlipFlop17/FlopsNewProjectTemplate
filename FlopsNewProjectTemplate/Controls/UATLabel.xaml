@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="FlopsNewProjectTemplate.Controls.UATLabel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlopsNewProjectTemplate.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="100" d:DesignWidth="100" d:Background="WhiteSmoke">
+    <!--User Authentication Testing-->
+    <Grid>
+        <Border CornerRadius="5" BorderThickness="2" Background="HotPink" VerticalAlignment="Center">
+            <Label HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="UAT" FontSize="20" FontWeight="Bold"
+                   Foreground="GreenYellow"></Label>
+        </Border>
+    </Grid>
+</UserControl>

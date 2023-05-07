@@ -1,16 +1,22 @@
-﻿using FlopsNewProjectTemplate.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FlopsNewProjectTemplate.Config;
+using FlopsNewProjectTemplate.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Serilog;
 
 namespace FlopsNewProjectTemplate.ViewModel
 {
     public class HomeViewModel : INavigationable
     {
-        public string Name => "Home";
+        private readonly AppConfig _config;
+
+        public string Name { get; }
 
         public INavigationable ViewModel => this;
+
+        public HomeViewModel(AppConfig config)
+        {
+            _config = config;
+            Name=_config.MainDirectoryPath;
+        }
     }
 }

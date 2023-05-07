@@ -39,8 +39,15 @@
             <!--Add new pages in Controls/NavigationMenu.xaml.cs-->
             <Border Name="WindowHeader" Grid.ColumnSpan="3" Background="WhiteSmoke" MouseDown="WindowHeader_MouseDown">
                 <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/> <!--Logo info-->
+                        <ColumnDefinition/> <!--some other info-->
+                        <ColumnDefinition Width="70"/> <!--Environ info-->
+                        <ColumnDefinition/> <!--Window controls-->
+                    </Grid.ColumnDefinitions>
                     <appControls:AppLogoName Margin="5" AppName="FlopsApp" PackIconName="AppBadge"/>
-                    <appControls:WindowControlButtons HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <appControls:UATLabel Grid.Column="2" Visibility="{Binding UatLabelVisibility,Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                    <appControls:WindowControlButtons Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 </Grid>
             </Border>
             <appControls:NavigationMenu Background="WhiteSmoke"
@@ -48,11 +55,13 @@
                 NewViewIsClicked="{Binding NewViewIsClicked}">
             </appControls:NavigationMenu>
             <!--this is where(placeholder) views/pages are injected-->
-            <ScrollViewer Grid.Column="1" Grid.Row="1" VerticalScrollBarVisibility="Auto">
-                <ContentControl
+            <materialDesign:DialogHost x:Name="RooDialogHost" Grid.Column="1" Grid.Row="1">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" Background="WhiteSmoke">
+                    <ContentControl Padding="10"
                      Content="{Binding CurrentViewModel}">
-                </ContentControl>
-            </ScrollViewer>
+                    </ContentControl>
+                </ScrollViewer>
+            </materialDesign:DialogHost>
         </Grid>
     </Border>
 </Window>

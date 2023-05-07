@@ -1,13 +1,6 @@
 ﻿using FlopsNewProjectTemplate.Controls;
 using FlopsNewProjectTemplate.Factory;
 using FlopsNewProjectTemplate.Interfaces;
-using FlopsNewProjectTemplate.ViewModel;
-using Microsoft.Xaml.Behaviors.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FlopsNewProjectTemplate.Services
 {
@@ -27,12 +20,22 @@ namespace FlopsNewProjectTemplate.Services
         /// Gives info about the current view model the user is on
         /// </summary>
         public NavigationViews CurrentViewModel { get; private set; }
+
+        /// <summary>
+        /// Navigates to the home page
+        /// </summary>
+        /// <returns></returns>
         public INavigationable GoToHomePage()
         {
             CurrentViewModel = NavigationViews.Home;
             return _viewFactory.GetRequestedViewModel(NavigationViews.Home);
 
         }
+        /// <summary>
+        /// Returns the selected viewmodel
+        /// </summary>
+        /// <param name="view">ViewModel</param>
+        /// <returns></returns>
         public INavigationable GetSelectedView(NavigationViews view)
         {
             CurrentViewModel = view;
