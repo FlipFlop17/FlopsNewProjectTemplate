@@ -10,18 +10,25 @@
             TextElement.FontSize="14"
             FontFamily="{materialDesign:MaterialDesignFont}"
              Background="Transparent"
-             mc:Ignorable="d" d:Background="Transparent"
-             d:DesignHeight="450" d:DesignWidth="800">
+             mc:Ignorable="d" Height="200" Width="500"
+             d:DesignHeight="200" d:DesignWidth="500">
     <Border CornerRadius="25" BorderThickness="2"
             Background="WhiteSmoke">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="223*"/>
+                <RowDefinition Height="114*"/>
+                <RowDefinition Height="109*"/>
             </Grid.RowDefinitions>
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
-                <Button Content="Cancel"/>
-                <Button Content="Yes"/>
+            <TextBlock Grid.Row="0" d:Text="Lorem ipsum lorem" Width="450"
+                       TextWrapping="Wrap" TextAlignment="Center"
+                       Padding="20" FontSize="15" HorizontalAlignment="Center"
+                       Text="{Binding DialogText}">
+            </TextBlock>
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.RowSpan="2"
+                        HorizontalAlignment="Right">
+                <Button Content="Cancel" Width="100" Style="{DynamicResource MaterialDesignFlatLightBgButton}" CommandParameter="Cancel" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
+                <Button Content="Yes" Width="100" Margin="10 0" Style="{DynamicResource MaterialDesignFlatAccentBgButton}" CommandParameter="Yes" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
             </StackPanel>
         </Grid>
     </Border>

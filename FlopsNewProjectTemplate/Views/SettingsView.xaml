@@ -16,7 +16,17 @@
             mc:Ignorable="d"
             d:DataContext="{d:DesignInstance viewModel:SettingsViewModel, IsDesignTimeCreatable=True}"
             d:Height="450" d:Width="800">
-    <Grid>
-        <Label FontSize="50">SETTINGS</Label>
+    <Grid Margin="15 0 0 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Label FontSize="35" Content="Settings"/>
+            <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Margin="0 10">
+            <Button Content="Open Dialog" Style="{StaticResource MaterialDesignFlatLightBgButton}" Width="150" HorizontalAlignment="Left" Command="{Binding OpenDialogCommand}"></Button>
+        </StackPanel>
     </Grid>
 </UserControl>

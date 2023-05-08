@@ -55,7 +55,7 @@
                 NewViewIsClicked="{Binding NewViewIsClicked}">
             </appControls:NavigationMenu>
             <!--this is where(placeholder) views/pages are injected-->
-            <materialDesign:DialogHost x:Name="RooDialogHost" Grid.Column="1" Grid.Row="1">
+            <materialDesign:DialogHost CloseOnClickAway="True" Identifier="RootDialogHost" Grid.Column="1" Grid.Row="1">
                 <ScrollViewer VerticalScrollBarVisibility="Auto" Background="WhiteSmoke">
                     <ContentControl Padding="10"
                      Content="{Binding CurrentViewModel}">

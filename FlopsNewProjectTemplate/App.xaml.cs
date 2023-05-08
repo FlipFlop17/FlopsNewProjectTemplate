@@ -1,5 +1,6 @@
 ﻿using FlopsNewProjectTemplate.Config;
 using FlopsNewProjectTemplate.Factory;
+using FlopsNewProjectTemplate.Interfaces;
 using FlopsNewProjectTemplate.Services;
 using FlopsNewProjectTemplate.ViewModel;
 using Microsoft.Extensions.Configuration;
@@ -49,6 +50,7 @@ namespace FlopsNewProjectTemplate
                         services.AddTransient<SettingsViewModel>();
                         services.AddSingleton<MainWindowViewModel>();
                         services.AddSingleton<ViewModelFactory>();
+                        services.AddTransient<IDialogService,DialogService>();
                         services.AddSingleton(s => new MainWindow()
                         {
                             DataContext = s.GetService<MainWindowViewModel>()

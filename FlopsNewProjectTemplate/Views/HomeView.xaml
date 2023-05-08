@@ -16,7 +16,7 @@
             mc:Ignorable="d"
             d:DataContext="{d:DesignInstance viewModel:HomeViewModel, IsDesignTimeCreatable=True}"
             d:Height="400" d:Width="800">
-    <Grid>
-        <Label FontSize="50" Content="{Binding Name}"></Label>
+    <Grid Margin="10">
+        <Label FontSize="50" d:Content="Home" Content="{Binding Name}"></Label>
     </Grid>
 </UserControl>

@@ -20,9 +20,13 @@ namespace FlopsNewProjectTemplate.Controls
     /// </summary>
     public partial class DialogYesCancel : UserControl
     {
+        public string DialogText { get; set; }
         public DialogYesCancel()
         {
+            DialogText = "I have a dialog service which you can call and use. Sounds good?";
+            DataContext = this;
             InitializeComponent();
+
         }
     }
 }

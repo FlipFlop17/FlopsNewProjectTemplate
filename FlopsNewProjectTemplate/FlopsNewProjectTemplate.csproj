@@ -239,6 +239,9 @@
     <Compile Include="Controls\AppLogoName.xaml.cs">
       <DependentUpon>AppLogoName.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\DialogYesCancel.xaml.cs">
+      <DependentUpon>DialogYesCancel.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UATLabel.xaml.cs">
       <DependentUpon>UATLabel.xaml</DependentUpon>
     </Compile>
@@ -247,8 +250,10 @@
     </Compile>
     <Compile Include="Factory\ViewModelFactory.cs" />
     <Compile Include="Interfaces\IDatabaseService.cs" />
+    <Compile Include="Interfaces\IDialogService.cs" />
     <Compile Include="Interfaces\INavigationable.cs" />
     <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="Services\DialogService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
@@ -260,6 +265,10 @@
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\AppLogoName.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\DialogYesCancel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
