@@ -8,6 +8,10 @@ namespace FlopsNewProjectTemplate.Interfaces
 {
     public interface IDialogService
     {
-         void PromptYesCancelDialog();
+        /// <summary>
+        /// Returns True if dialog is responded with 'Yes' false otherwise
+        /// </summary>
+        /// <returns></returns>
+         Task<bool> PromptYesCancelDialog();
     }
 }

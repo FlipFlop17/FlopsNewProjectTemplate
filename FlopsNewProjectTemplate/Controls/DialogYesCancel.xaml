@@ -26,7 +26,7 @@
                        Text="{Binding DialogText}">
             </TextBlock>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Grid.RowSpan="2"
-                        HorizontalAlignment="Right">
+                        HorizontalAlignment="Right" Margin="0 0 15 0">
                 <Button Content="Cancel" Width="100" Style="{DynamicResource MaterialDesignFlatLightBgButton}" CommandParameter="Cancel" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
                 <Button Content="Yes" Width="100" Margin="10 0" Style="{DynamicResource MaterialDesignFlatAccentBgButton}" CommandParameter="Yes" Command="{x:Static materialDesign:DialogHost.CloseDialogCommand}"/>
             </StackPanel>

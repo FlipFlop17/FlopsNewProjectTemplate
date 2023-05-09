@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 using FlopsNewProjectTemplate.Interfaces;
 using System;
+using System.Diagnostics;
 
 namespace FlopsNewProjectTemplate.ViewModel
 {
@@ -17,9 +18,13 @@ namespace FlopsNewProjectTemplate.ViewModel
             OpenDialogCommand = new RelayCommand(OpenDialog);
         }
 
-        private void OpenDialog()
+        private async void OpenDialog()
         {
-            _dialogService.PromptYesCancelDialog();
+            if ( await _dialogService.PromptYesCancelDialog()) {
+                Debug.Print("I accepted this dialog");
+            } else {
+                Debug.Print("I choose to cancel");
+            }
         }
     }
 }
