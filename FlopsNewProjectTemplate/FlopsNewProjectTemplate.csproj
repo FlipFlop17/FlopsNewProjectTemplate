@@ -254,6 +254,7 @@
     <Compile Include="Interfaces\INavigationable.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\MainProgressBarService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

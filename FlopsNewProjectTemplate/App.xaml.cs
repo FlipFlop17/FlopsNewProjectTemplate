@@ -3,6 +3,7 @@ using FlopsNewProjectTemplate.Factory;
 using FlopsNewProjectTemplate.Interfaces;
 using FlopsNewProjectTemplate.Services;
 using FlopsNewProjectTemplate.ViewModel;
+using MaterialDesignThemes.Wpf;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -48,13 +49,15 @@ namespace FlopsNewProjectTemplate
                         services.AddSingleton<NavigationService>();
                         services.AddTransient<HomeViewModel>();
                         services.AddTransient<SettingsViewModel>();
+                        services.AddSingleton<ISnackbarMessageQueue, SnackbarMessageQueue>();
+                        services.AddSingleton<MainProgressBarService>();
                         services.AddSingleton<MainWindowViewModel>();
                         services.AddSingleton<ViewModelFactory>();
                         services.AddTransient<IDialogService,DialogService>();
                         services.AddSingleton(s => new MainWindow()
                         {
                             DataContext = s.GetService<MainWindowViewModel>()
-                        });
+                        }); ;
                         
                     })
                     .Build();

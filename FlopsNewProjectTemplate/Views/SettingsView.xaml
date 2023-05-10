@@ -25,8 +25,16 @@
             <Label FontSize="35" Content="Settings"/>
             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
         </StackPanel>
-        <StackPanel Grid.Row="1" Margin="0 10">
-            <Button Content="Open Dialog" Style="{StaticResource MaterialDesignFlatLightBgButton}" Width="150" HorizontalAlignment="Left" Command="{Binding OpenDialogCommand}"></Button>
+        <StackPanel Grid.Row="1" Margin="0 10" Orientation="Horizontal" VerticalAlignment="Top">
+            <Button Content="Open Dialog" Style="{StaticResource MaterialDesignOutlinedLightButton}" Width="150" 
+                    Command="{Binding OpenDialogCommand}"></Button>
+            <Button Content="Open snackbar" Margin="15 0" Width="150" Style="{StaticResource MaterialDesignOutlinedLightButton}" 
+                    Command="{Binding OpenSnackBarCommand}"/>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Content="Hide Progress bar" FontSize="10"/>
+                <ToggleButton Margin="15 0" IsChecked="{Binding IsChecked}"/>
+                <Label Content="Turn on progress bar" FontSize="10"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </UserControl>

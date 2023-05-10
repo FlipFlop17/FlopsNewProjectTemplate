@@ -9,14 +9,12 @@ namespace FlopsNewProjectTemplate.ViewModel
     {
         private readonly AppConfig _config;
 
-        public string Name { get; }
+        public string Name => "Home view";
 
         public INavigationable ViewModel => this;
 
-        public HomeViewModel(AppConfig config)
+        public HomeViewModel()
         {
-            _config = config;
-            Name=_config.MainDirectoryPath;
         }
     }
 }

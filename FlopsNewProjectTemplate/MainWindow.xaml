@@ -55,12 +55,17 @@
                 NewViewIsClicked="{Binding NewViewIsClicked}">
             </appControls:NavigationMenu>
             <!--this is where(placeholder) views/pages are injected-->
-            <materialDesign:DialogHost CloseOnClickAway="True" Identifier="RootDialogHost" Grid.Column="1" Grid.Row="1">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" Background="WhiteSmoke">
-                    <ContentControl Padding="10"
-                     Content="{Binding CurrentViewModel}">
-                    </ContentControl>
-                </ScrollViewer>
+            <materialDesign:DialogHost Grid.Column="1" Grid.Row="1" CloseOnClickAway="True" Identifier="RootDialogHost">
+                <Grid>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto" Background="WhiteSmoke" >
+                        <ContentControl Padding="10"
+                            Content="{Binding CurrentViewModel}">
+                        </ContentControl>
+                    </ScrollViewer>
+                    <materialDesign:Snackbar VerticalAlignment="Top" d:IsActive="True" Name="MainSnackBar" MessageQueue="{Binding MainSnackBarQueue}"/>
+                    <ProgressBar IsIndeterminate="True" VerticalAlignment="Top"
+                                 Visibility="{Binding IsRailProgressBarVisible,Converter={StaticResource BooleanToVisibilityConverter}}" />
+                </Grid>
             </materialDesign:DialogHost>
         </Grid>
     </Border>
