@@ -57,6 +57,10 @@
             <!--this is where(placeholder) views/pages are injected-->
             <materialDesign:DialogHost Grid.Column="1" Grid.Row="1" CloseOnClickAway="True" Identifier="RootDialogHost">
                 <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
                     <ScrollViewer VerticalScrollBarVisibility="Auto" Background="WhiteSmoke" >
                         <ContentControl Padding="10"
                             Content="{Binding CurrentViewModel}">
@@ -66,6 +70,16 @@
                                              MessageQueue="{Binding MainSnackBarQueue}"/>
                     <ProgressBar x:Name="MainProgressBar" IsIndeterminate="True" VerticalAlignment="Top"
                                  Visibility="{Binding IsRailProgressBarVisible,Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    <Border Grid.Row="1" Background="WhiteSmoke">
+                        <Border CornerRadius="5" Margin="15 0" VerticalAlignment="Top" 
+                                BorderBrush="{StaticResource AppCustomStone}"
+                                Background="{StaticResource AppCustomPink}">
+                            <TextBlock Text="Some status about form validation or something!"
+                                   Padding="10" Foreground="WhiteSmoke">
+
+                            </TextBlock>
+                        </Border>
+                    </Border>
                 </Grid>
             </materialDesign:DialogHost>
         </Grid>

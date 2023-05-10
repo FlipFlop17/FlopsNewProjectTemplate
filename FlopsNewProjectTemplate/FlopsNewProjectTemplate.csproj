@@ -254,6 +254,7 @@
     <Compile Include="Interfaces\INavigationable.cs" />
     <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Services\DialogService.cs" />
+    <Compile Include="Services\InfoBoxFooterService.cs" />
     <Compile Include="Services\MainProgressBarService.cs" />
     <Compile Include="Services\NavigationService.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
@@ -352,6 +353,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
+    <Folder Include="Converters\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
