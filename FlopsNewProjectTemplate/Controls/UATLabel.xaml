@@ -10,7 +10,7 @@
     <Grid>
         <Border CornerRadius="5" BorderThickness="2" Background="HotPink" VerticalAlignment="Center">
             <Label HorizontalContentAlignment="Center" VerticalAlignment="Center" Content="UAT" FontSize="20" FontWeight="Bold"
-                   Foreground="GreenYellow"></Label>
+                   Foreground="SpringGreen"></Label>
         </Border>
     </Grid>
 </UserControl>

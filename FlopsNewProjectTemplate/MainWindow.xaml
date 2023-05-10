@@ -62,8 +62,9 @@
                             Content="{Binding CurrentViewModel}">
                         </ContentControl>
                     </ScrollViewer>
-                    <materialDesign:Snackbar VerticalAlignment="Top" d:IsActive="True" Name="MainSnackBar" MessageQueue="{Binding MainSnackBarQueue}"/>
-                    <ProgressBar IsIndeterminate="True" VerticalAlignment="Top"
+                    <materialDesign:Snackbar VerticalAlignment="Top" d:IsActive="True" Name="MainSnackBar" 
+                                             MessageQueue="{Binding MainSnackBarQueue}"/>
+                    <ProgressBar x:Name="MainProgressBar" IsIndeterminate="True" VerticalAlignment="Top"
                                  Visibility="{Binding IsRailProgressBarVisible,Converter={StaticResource BooleanToVisibilityConverter}}" />
                 </Grid>
             </materialDesign:DialogHost>
