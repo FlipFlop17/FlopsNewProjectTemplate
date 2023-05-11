@@ -242,6 +242,9 @@
     <Compile Include="Controls\DialogYesCancel.xaml.cs">
       <DependentUpon>DialogYesCancel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\InfoMsgBox.xaml.cs">
+      <DependentUpon>InfoMsgBox.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\UATLabel.xaml.cs">
       <DependentUpon>UATLabel.xaml</DependentUpon>
     </Compile>
@@ -271,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\DialogYesCancel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\InfoMsgBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

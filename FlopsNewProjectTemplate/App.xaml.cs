@@ -51,6 +51,7 @@ namespace FlopsNewProjectTemplate
                         services.AddTransient<SettingsViewModel>();
                         services.AddSingleton<ISnackbarMessageQueue, SnackbarMessageQueue>();
                         services.AddSingleton<MainProgressBarService>();
+                        services.AddSingleton<InfoBoxFooterService>();
                         services.AddSingleton<MainWindowViewModel>();
                         services.AddSingleton<ViewModelFactory>();
                         services.AddTransient<IDialogService,DialogService>();

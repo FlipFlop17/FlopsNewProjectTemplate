@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="FlopsNewProjectTemplate.Controls.InfoMsgBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlopsNewProjectTemplate.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="50" d:DesignWidth="800">
+    <Grid>
+        <Border Name="InfoBoxRoot" Background="WhiteSmoke">
+            <Border Name="InfoBoxBorderBackground" CornerRadius="5" Margin="15 0" VerticalAlignment="Top"
+                    d:Background="Green">
+                <TextBlock Name="InfoBoxTextBlock" d:Text="Some status about form validation or something!"
+                                   Padding="10"
+                           Foreground="WhiteSmoke" 
+                           Text="{Binding MessageToShow}">
+                </TextBlock>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding MessageType}" Value="Positive">
+                                <Setter Property="Background" Value="Green"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding MessageType}" Value="Neutral">
+                                <Setter Property="Background" Value="Gray"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding MessageType}" Value="Warning">
+                                <Setter Property="Background" Value="Yellow"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+            </Border>
+        </Border>
+    </Grid>
+</UserControl>

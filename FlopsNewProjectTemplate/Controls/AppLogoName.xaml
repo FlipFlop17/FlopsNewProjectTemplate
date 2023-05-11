@@ -10,7 +10,7 @@
     <Grid>
         <StackPanel Orientation="Horizontal">
             <materialDesign:PackIcon Kind="{Binding PackIconName}" Foreground="{StaticResource AppCustomPurple}" VerticalAlignment="Center"/>
-            <Label Margin="5 0" Content="{Binding AppName}" VerticalAlignment="Center" Foreground="{StaticResource AppCustomStone}"/>
+            <Label Margin="5 0" d:Content="App Name" Content="{Binding AppName}" VerticalAlignment="Center" Foreground="{StaticResource AppCustomStone}"/>
         </StackPanel>
     </Grid>
 </UserControl>

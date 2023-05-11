@@ -45,7 +45,7 @@
                         <ColumnDefinition Width="70"/> <!--Environ info-->
                         <ColumnDefinition/> <!--Window controls-->
                     </Grid.ColumnDefinitions>
-                    <appControls:AppLogoName Margin="5" AppName="FlopsApp" PackIconName="AppBadge"/>
+                    <appControls:AppLogoName Margin="5" AppName="MyAppName" PackIconName="AppBadge"/>
                     <appControls:UATLabel Grid.Column="2" Visibility="{Binding UatLabelVisibility,Converter={StaticResource BooleanToVisibilityConverter}}"/>
                     <appControls:WindowControlButtons Grid.Column="3" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                 </Grid>
@@ -70,16 +70,8 @@
                                              MessageQueue="{Binding MainSnackBarQueue}"/>
                     <ProgressBar x:Name="MainProgressBar" IsIndeterminate="True" VerticalAlignment="Top"
                                  Visibility="{Binding IsRailProgressBarVisible,Converter={StaticResource BooleanToVisibilityConverter}}" />
-                    <Border Grid.Row="1" Background="WhiteSmoke">
-                        <Border CornerRadius="5" Margin="15 0" VerticalAlignment="Top" 
-                                BorderBrush="{StaticResource AppCustomStone}"
-                                Background="{StaticResource AppCustomPink}">
-                            <TextBlock Text="Some status about form validation or something!"
-                                   Padding="10" Foreground="WhiteSmoke">
-
-                            </TextBlock>
-                        </Border>
-                    </Border>
+                    <appControls:InfoMsgBox Grid.Row="1" MessageToShow="{Binding DataContext.FooterInfoMessage,RelativeSource={RelativeSource AncestorType=Window}}"
+                                            MessageType="{Binding DataContext.FooterInfoMessageType,RelativeSource={RelativeSource AncestorType=Window}}"/>
                 </Grid>
             </materialDesign:DialogHost>
         </Grid>

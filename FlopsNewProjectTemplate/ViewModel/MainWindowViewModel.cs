@@ -21,8 +21,9 @@ namespace FlopsNewProjectTemplate.ViewModel
     public class MainWindowViewModel:ObservableObject
     {
         private readonly NavigationService _navService;
-        private readonly ISnackbarMessageQueue _mainMsgqueue;
-        private readonly MainProgressBarService _mainProgressBar;
+        private readonly ISnackbarMessageQueue _mainMsgqueueService;
+        private readonly MainProgressBarService _mainProgressBarService;
+        private readonly InfoBoxFooterService _footerMsgService;
         private INavigationable _currentViewModel;
         public INavigationable CurrentViewModel
         {
@@ -32,7 +33,7 @@ namespace FlopsNewProjectTemplate.ViewModel
         public RelayCommand<NavigationViews> NewViewIsClicked { get; set; }
         public bool UatLabelVisibility { get; set; }
 
-        public ISnackbarMessageQueue MainSnackBarQueue => _mainMsgqueue;
+        public ISnackbarMessageQueue MainSnackBarQueue => _mainMsgqueueService;
 
         private bool _isRailProgressBarVisible;
         public bool IsRailProgressBarVisible
@@ -40,27 +41,50 @@ namespace FlopsNewProjectTemplate.ViewModel
             get { return _isRailProgressBarVisible; }
             set { SetProperty(ref _isRailProgressBarVisible, value); }
         }
+        private string _footerInfoMessage;
+        public string FooterInfoMessage
+        {
+            get { return _footerInfoMessage; }
+            set { SetProperty(ref _footerInfoMessage, value); }
+        }
+        private MessageType _footerInfoMessageType;
+        public MessageType FooterInfoMessageType
+        {
+            get { return _footerInfoMessageType; }
+            set { SetProperty(ref _footerInfoMessageType, value); }
+        }
 
-        public MainWindowViewModel(NavigationService navService,AppConfig config,ISnackbarMessageQueue mainMsgqueue,MainProgressBarService mainProgressBar)
+        public MainWindowViewModel(NavigationService navService,
+            AppConfig config,
+            ISnackbarMessageQueue mainMsgqueue,
+            MainProgressBarService mainProgressBar,
+            InfoBoxFooterService footerMsg)
         {
             _navService = navService;
-            _mainMsgqueue = mainMsgqueue;
-            _mainProgressBar = mainProgressBar;
+            _mainMsgqueueService = mainMsgqueue;
+            _mainProgressBarService = mainProgressBar;
+            _footerMsgService = footerMsg;
             CurrentViewModel = _navService.GoToHomePage(); //set start page
             NewViewIsClicked = new RelayCommand<NavigationViews>(ClickedMe);
             UatLabelVisibility = !config.IsRunningOnProduction();
-            _mainProgressBar.ProgressBarVisibilityChanged += MainProgressBar_ProgressBarVisibilityChanged;
+            _mainProgressBarService.ProgressBarVisibilityChanged += MainProgressBar_ProgressBarVisibilityChanged;
+            _footerMsgService.MessageInfoChanged += _footerMsgService_MessageInfoChanged;
+        }
+
+        private void _footerMsgService_MessageInfoChanged(object sender, EventArgs e)
+        {
+            FooterInfoMessage = _footerMsgService.MessageToShow;
+            FooterInfoMessageType = _footerMsgService.MessageType;
         }
 
         private void MainProgressBar_ProgressBarVisibilityChanged(object sender, EventArgs e)
         {
-            IsRailProgressBarVisible = _mainProgressBar.IsVisible;
+            IsRailProgressBarVisible = _mainProgressBarService.IsVisible;
         }
 
         private void ClickedMe(NavigationViews view)
         {
             CurrentViewModel = _navService.GetSelectedView(view);
         }
-        //TODO Dialogs
     }
 }
