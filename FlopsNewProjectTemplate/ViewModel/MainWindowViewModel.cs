@@ -53,6 +53,12 @@ namespace FlopsNewProjectTemplate.ViewModel
             get { return _footerInfoMessageType; }
             set { SetProperty(ref _footerInfoMessageType, value); }
         }
+        private Visibility _footerVisibility=Visibility.Hidden;
+        public Visibility FooterVisibility
+        {
+            get => _footerVisibility;
+            set { SetProperty(ref _footerVisibility, value); } 
+        }
 
         public MainWindowViewModel(NavigationService navService,
             AppConfig config,
@@ -75,6 +81,7 @@ namespace FlopsNewProjectTemplate.ViewModel
         {
             FooterInfoMessage = _footerMsgService.MessageToShow;
             FooterInfoMessageType = _footerMsgService.MessageType;
+            FooterVisibility = _footerMsgService.MessageBoxVisibility;
         }
 
         private void MainProgressBar_ProgressBarVisibilityChanged(object sender, EventArgs e)

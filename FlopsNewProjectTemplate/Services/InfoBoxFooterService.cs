@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace FlopsNewProjectTemplate.Services
 {
@@ -24,10 +25,22 @@ namespace FlopsNewProjectTemplate.Services
         /// If not set the default is Neutral
         /// </summary>
         public MessageType MessageType { get; private set; }
+        public Visibility MessageBoxVisibility { get; private set; }
         public void ShowMessage(string msgToShow,MessageType msgType=MessageType.Neutral) {
+            MessageBoxVisibility = Visibility.Visible;
             MessageToShow = msgToShow;
             MessageType = msgType;
-            MessageInfoChanged?.Invoke(this,EventArgs.Empty);
+            RaiseChanged();
+        }
+        public void HideMessageBox()
+        {
+            MessageBoxVisibility = Visibility.Hidden;
+            RaiseChanged();
+        }
+
+        private void RaiseChanged()
+        {
+            MessageInfoChanged?.Invoke(this, EventArgs.Empty);
         }
     }
 

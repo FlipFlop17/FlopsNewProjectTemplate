@@ -19,7 +19,7 @@ namespace FlopsNewProjectTemplate.ViewModel
         public INavigationable ViewModel => this;
         public RelayCommand OpenDialogCommand { get; }
         public RelayCommand OpenSnackBarCommand { get; }
-
+        public RelayCommand<MessageType> ShowInfoMsg { get; }
         private bool _isCheckedProgress;
 
         public bool IsCheckedProgress
@@ -43,7 +43,9 @@ namespace FlopsNewProjectTemplate.ViewModel
             {
                 SetProperty(ref _isCheckedInfo, value);
                 if (IsCheckedInfo) {
-                    _infoService.ShowMessage("Showing my msg info",MessageType.Positive);
+                    _infoService.ShowMessage("Showing my msg info",MessageType.Error);
+                } else {
+                    _infoService.HideMessageBox();
                 }
             }
         }
@@ -56,6 +58,27 @@ namespace FlopsNewProjectTemplate.ViewModel
             _infoService = infoService;
             OpenDialogCommand = new RelayCommand(OpenDialog);
             OpenSnackBarCommand = new RelayCommand(OpenSnackBar);
+            ShowInfoMsg = new RelayCommand<MessageType>(ShowInfoBar);
+            IsCheckedInfo = false;
+        }
+
+        private void ShowInfoBar(MessageType type)
+        {
+            IsCheckedInfo=true;
+            switch (type) {
+                case MessageType.Error:
+                    _infoService.ShowMessage("You have an error", MessageType.Error);
+                    break;
+                case MessageType.Warning:
+                    _infoService.ShowMessage("This is your last warning", MessageType.Warning);
+                    break;
+                case MessageType.Neutral:
+                    _infoService.ShowMessage("I am neutral", MessageType.Neutral);
+                    break;
+                case MessageType.Positive:
+                    _infoService.ShowMessage("Its a success", MessageType.Positive);
+                    break;
+            }
         }
         private void OpenSnackBar()
         {

@@ -71,7 +71,9 @@
                     <ProgressBar x:Name="MainProgressBar" IsIndeterminate="True" VerticalAlignment="Top"
                                  Visibility="{Binding IsRailProgressBarVisible,Converter={StaticResource BooleanToVisibilityConverter}}" />
                     <appControls:InfoMsgBox Grid.Row="1" MessageToShow="{Binding DataContext.FooterInfoMessage,RelativeSource={RelativeSource AncestorType=Window}}"
-                                            MessageType="{Binding DataContext.FooterInfoMessageType,RelativeSource={RelativeSource AncestorType=Window}}"/>
+                                            MessageType="{Binding DataContext.FooterInfoMessageType,RelativeSource={RelativeSource AncestorType=Window}}"
+                                            d:IsMessageBoxVisible="Visible" 
+                                            IsMessageBoxVisible="{Binding DataContext.FooterVisibility,RelativeSource={RelativeSource AncestorType=Window}}"/>
                 </Grid>
             </materialDesign:DialogHost>
         </Grid>

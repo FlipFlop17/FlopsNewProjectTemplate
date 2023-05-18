@@ -1,4 +1,5 @@
 ﻿using FlopsNewProjectTemplate.Services;
+using MaterialDesignThemes.Wpf;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -15,22 +16,22 @@ namespace FlopsNewProjectTemplate.Controls
         public InfoMsgBox()
         {
             DataContext = this;
-            //InfoBoxBackgroundColor = (SolidColorBrush)this.FindResource("AppCustomPink");
             InitializeComponent();
         }
 
         /// <summary>
-        /// Type of a message that is displayed. positive, neutral etc.
+        /// Type of a message that is displayed. positive, neutral etc.Found in InfoBoxFooterService class
         /// </summary>
         public MessageType MessageType
         {
             get { return (MessageType)GetValue(MessageTypeProperty); }
-            set { SetValue(MessageTypeProperty, value);  }
+            set { SetValue(MessageTypeProperty, value);
+            }
         }
 
         // Using a DependencyProperty as the backing store for MyProperty.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MessageTypeProperty =
-            DependencyProperty.Register("MessageType", typeof(MessageType), typeof(UserControl), new PropertyMetadata(MessageType.Positive));
+            DependencyProperty.Register("MessageType", typeof(MessageType), typeof(UserControl), new PropertyMetadata(null));
 
         /// <summary>
         /// Message to be show on the usercontrol

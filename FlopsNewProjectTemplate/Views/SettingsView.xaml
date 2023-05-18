@@ -8,6 +8,7 @@
             xmlns:appControls="clr-namespace:FlopsNewProjectTemplate.Controls"
             xmlns:viewModel="clr-namespace:FlopsNewProjectTemplate.ViewModel"
             xmlns:views="clr-namespace:FlopsNewProjectTemplate.Views"
+             xmlns:services="clr-namespace:FlopsNewProjectTemplate.Services"
             TextElement.Foreground="{DynamicResource MaterialDesignBody}"
             Background="{DynamicResource MaterialDesignPaper}"
             TextElement.FontWeight="Medium"
@@ -25,26 +26,36 @@
             <Label FontSize="35" Content="Settings"/>
             <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" />
         </StackPanel>
-        <WrapPanel Grid.Row="1">
-            <!--dialog msg service example-->
-            <StackPanel Margin="0 10" Orientation="Horizontal" VerticalAlignment="Top">
-                <Button Content="Open Dialog" Style="{StaticResource MaterialDesignOutlinedLightButton}" Width="150" 
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="55"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <WrapPanel Grid.Row="0">
+                <!--dialog msg service example-->
+                <StackPanel Margin="0 10" Orientation="Horizontal" VerticalAlignment="Top">
+                    <Button Content="Open Dialog" Style="{StaticResource MaterialDesignOutlinedLightButton}" Width="150" 
                     Command="{Binding OpenDialogCommand}"></Button>
-                <Button Content="Open snackbar" Margin="15 0" Width="150" Style="{StaticResource MaterialDesignOutlinedLightButton}" 
+                    <Button Content="Open snackbar" Margin="15 0" Width="150" Style="{StaticResource MaterialDesignOutlinedLightButton}" 
                     Command="{Binding OpenSnackBarCommand}"/>
-            </StackPanel>
-            <!--progress bar service example-->
-            <StackPanel Orientation="Horizontal" >
-                <Label Content="Hide Progress bar" VerticalAlignment="Center" FontSize="10"/>
-                <ToggleButton Margin="15 0" IsChecked="{Binding IsCheckedProgress}"/>
-                <Label Content="Turn on progress bar" VerticalAlignment="Center" FontSize="10"/>
-            </StackPanel>
+                </StackPanel>
+                <!--progress bar service example-->
+                <StackPanel Orientation="Horizontal" >
+                    <Label Content="Hide Progress bar" VerticalAlignment="Center" FontSize="10"/>
+                    <ToggleButton Margin="15 0" IsChecked="{Binding IsCheckedProgress}"/>
+                    <Label Content="Turn on progress bar" VerticalAlignment="Center" FontSize="10"/>
+                </StackPanel>
+            </WrapPanel>
             <!--info box service example-->
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Hide Footer info" VerticalAlignment="Center" FontSize="10"/>
+            <StackPanel Grid.Row="1" Width="200" HorizontalAlignment="Left">
+                <Button Margin="5" Content="Error Msg" Style="{StaticResource MaterialDesignOutlinedButton}" Command="{Binding ShowInfoMsg}" CommandParameter="{x:Static services:MessageType.Error}"/>
+                <Button Margin="5" Content="Neutral" Style="{StaticResource MaterialDesignOutlinedButton}" Command="{Binding ShowInfoMsg}" CommandParameter="{x:Static services:MessageType.Neutral}"/>
+                <Button Margin="5" Content="Positive" Style="{StaticResource MaterialDesignOutlinedButton}" Command="{Binding ShowInfoMsg}" CommandParameter="{x:Static services:MessageType.Positive}"/>
+                <Button Margin="5" Content="Warning" Style="{StaticResource MaterialDesignOutlinedButton}" Command="{Binding ShowInfoMsg}" CommandParameter="{x:Static services:MessageType.Warning}"/>
+                <Label Margin="0 5" Content="Hide/Show info bar" HorizontalAlignment="Center"></Label>
                 <ToggleButton Margin="15 0" IsChecked="{Binding IsCheckedInfo}"/>
-                <Label Content="Show Footer info" VerticalAlignment="Center" FontSize="10"/>
             </StackPanel>
-        </WrapPanel>
+
+        </Grid>
     </Grid>
 </UserControl>

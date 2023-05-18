@@ -4,33 +4,75 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlopsNewProjectTemplate.Controls"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="800">
+    <UserControl.Resources>
+        <Style TargetType="materialDesign:PackIcon">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding MessageType}" Value="Positive">
+                    <Setter Property="Kind" Value="Success"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding MessageType}" Value="Warning">
+                    <Setter Property="Kind" Value="Warning"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding MessageType}" Value="Error">
+                    <Setter Property="Kind" Value="ExclamationBold"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding MessageType}" Value="Neutral">
+                    <Setter Property="Kind" Value="Information"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Resources>
     <Grid>
         <Border Name="InfoBoxRoot" Background="WhiteSmoke">
-            <Border Name="InfoBoxBorderBackground" CornerRadius="5" Margin="15 0" VerticalAlignment="Top"
-                    d:Background="Green">
-                <TextBlock Name="InfoBoxTextBlock" d:Text="Some status about form validation or something!"
+            <Border  Name="InfoBoxBorderBackground" CornerRadius="5" Margin="15 0" VerticalAlignment="Top"
+                    d:Background="Green" 
+                     Visibility="{Binding IsMessageBoxVisible}">
+                <Border.RenderTransform>
+                    <TranslateTransform Y="100"/>
+                </Border.RenderTransform>
+                <StackPanel Orientation="Horizontal" Margin="15 0">
+                    <materialDesign:PackIcon Foreground="WhiteSmoke"
+                                              VerticalAlignment="Center" Width="25" Height="25"/>
+                    <TextBlock Name="InfoBoxTextBlock" d:Text="Some status about form validation or something!"
                                    Padding="10"
                            Foreground="WhiteSmoke" 
                            Text="{Binding MessageToShow}">
-                </TextBlock>
+                    </TextBlock>
+                </StackPanel>
                 <Border.Style>
                     <Style TargetType="Border">
                         <Style.Triggers>
                             <DataTrigger Binding="{Binding MessageType}" Value="Positive">
-                                <Setter Property="Background" Value="Green"/>
+                                <Setter Property="Background" Value="{StaticResource AppCustomTeal}"/>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding MessageType}" Value="Neutral">
-                                <Setter Property="Background" Value="Gray"/>
+                                <Setter Property="Background" Value="{StaticResource AppCustomStone}"/>
                             </DataTrigger>
                             <DataTrigger Binding="{Binding MessageType}" Value="Warning">
-                                <Setter Property="Background" Value="Yellow"/>
+                                <Setter Property="Background" Value="{StaticResource AppCustomOrange}"/>
                             </DataTrigger>
+                            <DataTrigger Binding="{Binding MessageType}" Value="Error">
+                                <Setter Property="Background" Value="{StaticResource AppCustomPink}"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Visibility,RelativeSource={RelativeSource Self}}" Value="Visible">
+                                <DataTrigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimation Storyboard.TargetProperty="RenderTransform.(TranslateTransform.Y)" From="100" To="0" Duration="0:0:0.2"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </DataTrigger.EnterActions>
+                            </DataTrigger>
+
                         </Style.Triggers>
                     </Style>
+
                 </Border.Style>
             </Border>
+
         </Border>
     </Grid>
 </UserControl>
