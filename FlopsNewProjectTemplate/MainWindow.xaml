@@ -10,7 +10,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:viewModel="clr-namespace:FlopsNewProjectTemplate.ViewModel"
     xmlns:views="clr-namespace:FlopsNewProjectTemplate.Views"
-    Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converters:SizeConverter}, ConverterParameter='0.9'}"
+    Width="{Binding Source={x:Static SystemParameters.PrimaryScreenWidth}, Converter={converters:SizeConverter}, ConverterParameter='0.8'}"
     Height="{Binding Source={x:Static SystemParameters.PrimaryScreenHeight}, Converter={converters:SizeConverter}, ConverterParameter='0.7'}"
     MinWidth="500"
     MinHeight="400"
@@ -45,7 +45,7 @@
         CornerRadius="10">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="35" /> 
+                <RowDefinition Height="35" />
                 <!--  Close,Minimize HEADER  -->
                 <RowDefinition />
             </Grid.RowDefinitions>
@@ -61,13 +61,13 @@
                 MouseDown="WindowHeader_MouseDown">
                 <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition /> 
+                        <ColumnDefinition />
                         <!--  Logo info  -->
-                        <ColumnDefinition /> 
+                        <ColumnDefinition />
                         <!--  some other info  -->
-                        <ColumnDefinition Width="70" /> 
+                        <ColumnDefinition Width="70" />
                         <!--  Environ info  -->
-                        <ColumnDefinition /> 
+                        <ColumnDefinition />
                         <!--  Window controls  -->
                     </Grid.ColumnDefinitions>
                     <appControls:AppLogoName
