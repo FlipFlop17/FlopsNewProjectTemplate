@@ -251,6 +251,7 @@
     <Compile Include="Controls\WindowControlButtons.xaml.cs">
       <DependentUpon>WindowControlButtons.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\SizeConverter.cs" />
     <Compile Include="Factory\ViewModelFactory.cs" />
     <Compile Include="Interfaces\IDatabaseService.cs" />
     <Compile Include="Interfaces\IDialogService.cs" />
@@ -360,7 +361,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Assets\" />
-    <Folder Include="Converters\" />
     <Folder Include="Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
