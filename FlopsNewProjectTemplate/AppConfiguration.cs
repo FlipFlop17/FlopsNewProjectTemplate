@@ -1,13 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
-using System.IO;
-
-namespace FlopsNewProjectTemplate.Config
+﻿namespace FlopsNewProjectTemplate.Config
 {
     /// <summary>
     /// Class that holds the same properties as the App.config.json so it can be mapped inside dependency injection.
     /// </summary>
-    public class AppConfig
+    public class AppConfiguration
     {
         private string _mainDirectoryPath;
         public string MainDirectoryPath

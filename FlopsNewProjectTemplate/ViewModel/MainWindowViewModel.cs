@@ -61,7 +61,7 @@ namespace FlopsNewProjectTemplate.ViewModel
         }
 
         public MainWindowViewModel(NavigationService navService,
-            AppConfig config,
+            AppConfiguration config,
             ISnackbarMessageQueue mainMsgqueue,
             MainProgressBarService mainProgressBar,
             InfoBoxFooterService footerMsg)

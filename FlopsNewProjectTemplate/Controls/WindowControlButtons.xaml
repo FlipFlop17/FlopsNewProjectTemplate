@@ -42,10 +42,18 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="WindowsMaximizeButton" TargetType="Button" BasedOn="{StaticResource WindowsMinimizeButton}">
+        </Style>
     </UserControl.Resources>
     <Grid>
         <StackPanel Orientation="Horizontal" >
-            <Button Style="{StaticResource WindowsMinimizeButton}" Click="MinimizeWindow"></Button>
+            <Button Style="{StaticResource WindowsMinimizeButton}" Click="MinimizeWindow">
+                <Line X1="12" Stroke="LightSlateGray"></Line>
+            </Button>
+            <!--MAXIMIZE IS DISABLED SINCE MAX/MIN VALUES ARE SET UP ON THE MAIN WINDOW. REMOVE THEM FOR THIS ACTION-->
+            <Button Style="{StaticResource WindowsMaximizeButton}" Click="MaximizeWindow" IsEnabled="False">
+                <Rectangle Width="12" Height="12" Stroke="LightSlateGray" StrokeThickness="0.9"></Rectangle>
+            </Button>
             <Button Style="{StaticResource WindowsCloseButton}" Click="CloseWindow"></Button>
         </StackPanel>
     </Grid>

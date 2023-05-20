@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System.Diagnostics;
+using System.Windows;
 
 namespace FlopsNewProjectTemplate
 {
@@ -9,12 +10,14 @@ namespace FlopsNewProjectTemplate
     {
         public MainWindow()
         {
+
             InitializeComponent();
         }
 
         private void WindowHeader_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             this.DragMove();
+            
         }
     }
 }

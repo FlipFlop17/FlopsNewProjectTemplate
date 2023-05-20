@@ -27,7 +27,7 @@ namespace FlopsNewProjectTemplate
 
                 var logFileFullPath = Path.Combine
                     (
-                        Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+                        Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
                         AssemblyName.GetAssemblyName(Assembly.GetExecutingAssembly().Location).Name + "_Logs",
                         "Log-.txt"
                     );
@@ -45,7 +45,7 @@ namespace FlopsNewProjectTemplate
                     })
                     .ConfigureServices((context,services) =>
                     {
-                        services.AddSingleton(context.Configuration.Get<AppConfig>()); //maps json config file to class to be used across the application
+                        services.AddSingleton(context.Configuration.Get<AppConfiguration>()); //maps json config file to class to be used across the application
                         services.AddSingleton<NavigationService>();
                         services.AddTransient<HomeViewModel>();
                         services.AddTransient<SettingsViewModel>();

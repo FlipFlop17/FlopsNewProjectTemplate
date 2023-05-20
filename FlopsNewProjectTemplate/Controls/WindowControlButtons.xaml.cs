@@ -23,5 +23,10 @@ namespace FlopsNewProjectTemplate.Controls
             var myWindow = Window.GetWindow(this);
             myWindow.WindowState = WindowState.Minimized;
         }
+        private void MaximizeWindow(object sender, RoutedEventArgs e)
+        {
+            var myWindow = Window.GetWindow(this);
+            myWindow.WindowState = WindowState.Maximized;
+        }
     }
 }
