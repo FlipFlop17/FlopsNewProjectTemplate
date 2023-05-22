@@ -36,11 +36,11 @@ Inside DI the config.json is mapped to a AppConfiguration class which is then us
 
 # Example
 
-Home View-starting page
-![HomeView](/Assets/HomeView.png)
+Home View-starting page <br>
+![HomeView](https://github.com/FlipFlop17/FlopsNewProjectTemplate/tree/master/FlopsNewProjectTemplate/Assets/HomeView.png)
 
 Settings view with examples
-![SettingsView](/Assets/SettingsView.png)
-![SettingsControlView](/Assets/SettingsControls.png)
+![SettingsView](https://github.com/FlipFlop17/FlopsNewProjectTemplate/tree/master/FlopsNewProjectTemplate/Assets/SettingsView.png) <br>
+![SettingsControlView](https://github.com/FlipFlop17/FlopsNewProjectTemplate/tree/master/FlopsNewProjectTemplate/Assets/SettingsControls.png)
 
 
