@@ -34,7 +34,7 @@ Inside DI the config.json is mapped to a AppConfiguration class which is then us
 3. New menu button for the navigation is then added inside Controls/NavigationMenu.xaml starting on the line 48.
 4. Your new view is done.
 
-# Example
+# App looks
 
 Home View-starting page <br>
 ![HomeView](https://github.com/FlipFlop17/FlopsNewProjectTemplate/tree/master/FlopsNewProjectTemplate/Assets/HomeView.png)
