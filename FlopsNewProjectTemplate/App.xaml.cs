@@ -38,6 +38,7 @@ namespace FlopsNewProjectTemplate
                     .CreateLogger();
 
                 _appHost = Host.CreateDefaultBuilder()
+                    .UseSerilog()
                     .ConfigureAppConfiguration((hostingcontext, config) =>
                     {
                         config.SetBasePath(Directory.GetCurrentDirectory());
